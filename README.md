@@ -1,6 +1,6 @@
 # ts-overlapping-marker-spiderfier-leaflet
 
-This is a fork of jawj's [OverlappingMarkerSpiderfier-Leaflet](https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet), rewritten in TypeScript. It is inspired by chancezeus's [ts-overlapping-marker-spiderfier](https://github.com/chancezeus/ts-overlapping-marker-spiderfier) but for leaflet. This version is designed for use with Angular and other Webpack-based systems.
+This is a fork of jawj's [OverlappingMarkerSpiderfier-Leaflet](https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet), rewritten in TypeScript. It is inspired by chancezeus's [ts-overlapping-marker-spiderfier](https://github.com/chancezeus/oms) but for leaflet. This version is designed for use with Angular and other Webpack-based systems.
 
 
 ## Table of Contents
