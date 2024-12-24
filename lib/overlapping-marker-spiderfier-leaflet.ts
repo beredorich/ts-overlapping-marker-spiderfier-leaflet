@@ -1,7 +1,15 @@
 /** @preserve OverlappingMarkerSpiderfier
- * https://github.com/jawj/OverlappingMarkerSpiderfier
+ * https://github.com/jawj/OverlappingMarkerSpiderfier-Leaflet
  * Copyright (c) 2011 - 2017 George MacKerron
- * Released under the MIT licence: http://opensource.org/licenses/mit-license
+ * 
+ * https://github.com/chancezeus/oms
+ * Copyright (c) 2018 - 2021 Mark van Beek
+ *
+ * Forked and modified by Draxare
+ * https://github.com/Draxare/ts-overlapping-marker-spiderfier-leaflet
+ * Copyright (c) 2024 Alex Laisney
+ * 
+ * Released under the MIT license: http://opensource.org/licenses/mit-license
  */
 
 import * as L from 'leaflet';
