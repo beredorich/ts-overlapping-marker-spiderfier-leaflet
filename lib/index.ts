@@ -1,2 +1,2 @@
-export * from './overlapping-marker-spiderfier-leaflet-types';
-export * from './overlapping-marker-spiderfier-leaflet';
+export * from './omsleaflet-types';
+export * from './omsleaflet';
