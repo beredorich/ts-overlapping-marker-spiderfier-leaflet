@@ -4,8 +4,8 @@ interface OMSData {
   leg: L.Polyline;
   usualPosition: L.LatLng;
   highlightListeners?: {
-    highlight: () => void,
-    unhighlight: () => void
+    highlight: () => void;
+    unhighlight: () => void;
   };
 }
 
