@@ -13,7 +13,7 @@
  */
 import * as L from 'leaflet';
 
-import { LegColorOptions, ExtendedMarker, MarkerData, SpiderfierOptions } from './omsleaflet-types';
+import { LegColorOptions, ExtendedMarker, MarkerData, SpiderfierOptions, SpiderfierEventMap, SpiderfierEventHandler } from './omsleaflet-types';
 
 class OverlappingMarkerSpiderfier {
     keepSpiderfied: boolean;
@@ -32,7 +32,12 @@ class OverlappingMarkerSpiderfier {
     private unspiderfying: boolean = false;
     private markers: ExtendedMarker[] = [];
     private markerListeners: Array<{ marker: ExtendedMarker; listener: L.LeafletEventHandlerFn }> = [];
-    private listeners: { [event: string]: Array<(...args: any[]) => void> } = {};
+    private listeners: { [eventName in keyof SpiderfierEventMap]: Array<(...args: SpiderfierEventMap[eventName]) => void> } = {
+      spiderfy: [],
+      unspiderfy: [],
+      click: [],
+      zoomend: [],
+    };
 
     constructor(map: L.Map, opts: SpiderfierOptions = {}) {
       this.map = map;
@@ -97,12 +102,12 @@ class OverlappingMarkerSpiderfier {
       return this;
     }
 
-    addListener(event: string, func: (...args: any[]) => void): this {
+    addListener<eventName extends keyof SpiderfierEventMap>(event: eventName, func: SpiderfierEventHandler<eventName>): this {
       (this.listeners[event] ||= []).push(func);
       return this;
     }
 
-    removeListener(event: string, func: (...args: any[]) => void): this {
+    removeListener<eventName extends keyof SpiderfierEventMap>(event: eventName, func: SpiderfierEventHandler<eventName>): this {
       const i = this.arrIndexOf(this.listeners[event], func);
       if (i >= 0) {
         this.listeners[event].splice(i, 1);
@@ -110,7 +115,7 @@ class OverlappingMarkerSpiderfier {
       return this;
     }
 
-    clearListeners(event: string): this {
+    clearListeners<eventName extends keyof SpiderfierEventMap>(event: eventName): this {
       this.listeners[event] = [];
       return this;
     }
@@ -151,8 +156,8 @@ class OverlappingMarkerSpiderfier {
       this.markerListeners = [];
     }
 
-    private trigger(event: string, ...args: any[]): void {
-      (this.listeners[event] || []).forEach(func => func(...args));
+    private trigger<eventName extends keyof SpiderfierEventMap>(event: eventName, ...args: SpiderfierEventMap[eventName]): void {
+      (this.listeners[event] || []).forEach(func => (func as (...args: SpiderfierEventMap[eventName]) => void)(...args));
     }
 
     private generatePtsCircle(count: number, centerPt: L.Point): L.Point[] {
