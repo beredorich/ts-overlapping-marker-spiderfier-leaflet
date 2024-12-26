@@ -36,7 +36,6 @@ class OverlappingMarkerSpiderfier {
       spiderfy: [],
       unspiderfy: [],
       click: [],
-      zoomend: [],
     };
 
     constructor(map: L.Map, opts: SpiderfierOptions = {}) {
@@ -63,7 +62,7 @@ class OverlappingMarkerSpiderfier {
         return this;
       }
       marker._oms = true;
-      const markerListener = (event: L.LeafletEvent): Promise<void> => this.spiderListener(event.target);
+      const markerListener: L.LeafletEventHandlerFn = (event) => this.spiderListener(event.target);
       marker.addEventListener('click', markerListener);
       this.markerListeners.push({ marker, listener: markerListener });
       this.markers.push(marker);
@@ -120,7 +119,7 @@ class OverlappingMarkerSpiderfier {
       return this;
     }
 
-    async unspiderfy(markerNotToMove: ExtendedMarker | null = null): Promise<this> {
+    unspiderfy(markerNotToMove: ExtendedMarker | null = null): this {
       if (!this.spiderfied || this.unspiderfying) {
         return this;
       }
@@ -187,11 +186,11 @@ class OverlappingMarkerSpiderfier {
       });
     }
 
-    private async spiderListener(marker: ExtendedMarker): Promise<void> {
+    private spiderListener(marker: ExtendedMarker): void {
       const markerSpiderfied = marker._omsData;
 
       if (!markerSpiderfied || !this.keepSpiderfied) {
-        await this.unspiderfy();
+        this.unspiderfy();
       }
       if (markerSpiderfied) {
         this.trigger('click', marker);

@@ -41,7 +41,6 @@ export interface SpiderfierEventMap {
   spiderfy: [spiderfiedMarkers: ExtendedMarker[], nonNearbyMarkers: ExtendedMarker[]];
   unspiderfy: [unspiderfiedMarkers: ExtendedMarker[], nonNearbyMarkers: ExtendedMarker[]];
   click: [marker: ExtendedMarker];
-  zoomend: [L.LeafletEvent];
 }
 
 export type SpiderfierEventHandler<eventName extends keyof SpiderfierEventMap> = (...args: SpiderfierEventMap[eventName]) => void;
