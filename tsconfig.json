@@ -14,7 +14,7 @@
     "strict": true,
     "esModuleInterop": true,
     "lib": [
-      "es2020",
+      "es2018",
       "dom"
     ],
     "types": [
