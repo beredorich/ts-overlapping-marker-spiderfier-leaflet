@@ -3,7 +3,7 @@
   "version": "1.0.9",
   "description": "Overlapping Marker Spiderfier Leaflet",
   "files": [
-    "dist",
+    "lib",
     "README.md"
   ],
   "main": "./dist/index.umd.js",
