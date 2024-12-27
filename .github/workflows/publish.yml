@@ -19,6 +19,11 @@ jobs:
           node-version: '12'
           registry-url: https://registry.npmjs.org
 
+      - name: 📝 Configure Git User
+        run: |
+          git config user.name "beredorich"
+          git config user.email "richberedo@gmail.com"
+
       - name: 🔢 Bump Version
         run: |
           npm version patch -m "chore(release): bump version to %s"
