@@ -36,6 +36,8 @@ class OverlappingMarkerSpiderfier {
       spiderfy: [],
       unspiderfy: [],
       click: [],
+      mouseenter: [],
+      mouseover: []
     };
 
     constructor(map: L.Map, opts: SpiderfierOptions = {}) {
