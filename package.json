@@ -1,11 +1,11 @@
 {
-  "name": "ts-overlapping-marker-spiderfier-leaflet",
-  "version": "1.0.5",
+  "name": "@rich-devtools/ts-overlapping-marker-spiderfier-leaflet",
+  "version": "1.0.7",
   "description": "Overlapping Marker Spiderfier Leaflet",
   "main": "./dist/index.umd.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "author": "Alex Laisney",
+  "author": "Alex Laisney, Rich Beredo",
   "homepage": "https://github.com/Draxare/ts-overlapping-marker-spiderfier-leaflet#readme",
   "license": "MIT",
   "type": "module",
@@ -23,9 +23,7 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "npm run clean && npm run build:tsc && npm run build:packs",
-    "build:tsc": "tsc",
-    "build:packs": "rollup -c rollup.config.mjs",
-    "prepublishOnly": "npm run build"
+    "build:tsc": "tsc"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.15"
