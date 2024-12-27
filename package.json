@@ -1,6 +1,6 @@
 {
   "name": "@rich-devtools/ts-overlapping-marker-spiderfier-leaflet",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Overlapping Marker Spiderfier Leaflet",
   "files": [
     "lib",
