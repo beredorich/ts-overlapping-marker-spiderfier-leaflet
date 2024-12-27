@@ -15,6 +15,7 @@ import * as L from 'leaflet';
 
 import { LegColorOptions, ExtendedMarker, MarkerData, SpiderfierOptions, SpiderfierEventMap, SpiderfierEventHandler } from './omsleaflet-types';
 
+
 class OverlappingMarkerSpiderfier {
     keepSpiderfied: boolean;
     nearbyDistance: number;
