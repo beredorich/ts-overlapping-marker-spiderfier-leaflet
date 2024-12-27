@@ -19,6 +19,9 @@ jobs:
           node-version: '12'
           registry-url: https://registry.npmjs.org
         
+      - name: 📝 Copy package.json to lib
+        run: cp package.json lib/
+
       - name: 🚀 Publish to npm
         run: npm publish --access public
         working-directory: lib
